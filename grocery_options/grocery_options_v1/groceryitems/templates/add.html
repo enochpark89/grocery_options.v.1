@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    <title>Add an item</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    
+</head>
+<body>
+    
+    <h1>Add item</h1>
+
+    <form action="addrecord/" method="post">
+        {% csrf_token %}
+        Post Date:<br>
+        <input name="post_date">
+        <br><br>
+        
+        Company name:<br>
+        <input name="company_name">
+        <br><br>
+        
+        Price:<br>
+        <input name="price">
+        <br><br>
+        
+        Description:<br>
+        <input name="condition">
+        <br><br>
+        
+        Brand Name:<br>
+        <input name="brand_name">
+        <br><br>	
+        
+        Item Name:<br>
+        <input name="item_name">
+        <br><br>	
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

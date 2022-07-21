@@ -6,9 +6,32 @@
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 </head>
 <body>
-
-<h1>Grocery Options v.1</h1>
-<p>Welcome to grocery options where you can compare grocery prices from multiple supermarket companies.</p>
+    <h1>Grocery Items</h1>
+    <div>
+        <a href="add/"><button type="button">Add</button></a>
+    </div>
+    <table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Post Date</th>
+        <th>Company Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Brand Name</th>
+        <th>Item Name</th>
+    </tr>
+    {% for item in items %}
+    <tr>
+    <td>{{ item.id }}</td>
+    <td>{{ item.post_date }}</td>
+    <td>{{ item.company_name }}</td>
+    <td>$ {{ item.price }}</td>
+    <td>{{ item.condition }}</td>
+    <td>{{ item.brand_name }}</td>
+    <td>{{ item.item_name }}</td>
+    </tr>
+    {% endfor %}
+    </table>
 
 </body>
 </html>
