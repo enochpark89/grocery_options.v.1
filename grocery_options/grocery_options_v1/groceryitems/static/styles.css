@@ -2,4 +2,37 @@ body {
     background-color: black;
     color:white;
     margin-left: 30px;
+
+    /*Flex to center*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.navBtnList {
+    display:flex;
+    list-style-type: none;
+}
+.navBtnList li {
+    margin: 20px;
+}
+
+.deleteButton {
+    background-color: #c0392b;
+    border-color: #c0392b;
+}
+
+.updateButton {
+    background-color: #27ae60;
+    border-color: #27ae60;
+    
+}
+
+h1 {
+    font-size: 3em;
+}
+h2 {
+    font-size: 2em;
 }

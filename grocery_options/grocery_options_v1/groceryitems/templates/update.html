@@ -12,35 +12,36 @@
 </head>
 <body>
     
-    <h1>Add item</h1>
 
-    <form action="addrecord/" method="post">
+    <h1>Update item</h1>
+
+    <form action="updaterecord/{{ item.id }}" method="post">
         {% csrf_token %}
-        Post Date (format: YYYY-MM-DD):<br>
-        <input name="post_date">
+        Post Date: {{item.post_date}}
         <br>
-        
+
         Company name:<br>
-        <input name="company_name">
+        <input name="company_name" value="{{item.company_name}}">
         <br>
         
         Price:<br>
-        <input name="price">
+        <input name="price" value="{{item.price}}">
         <br>
         
         Description:<br>
-        <input name="condition">
+        <input name="condition" value="{{item.condition}}">
         <br>
         
         Brand Name:<br>
-        <input name="brand_name">
+        <input name="brand_name" value="{{item.brand_name}}">
         <br>
         
         Item Name:<br>
-        <input name="item_name">
+        <input name="item_name" value="{{item.item_name}}">
         <br>	
 
         <input type="submit" value="Submit">
     </form>
 </body>
 </html>
+

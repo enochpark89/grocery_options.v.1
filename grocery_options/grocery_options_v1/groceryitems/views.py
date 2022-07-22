@@ -33,3 +33,36 @@ def addrecord(request):
     item_name=item_name)
   item.save()
   return HttpResponseRedirect(reverse('index'))
+
+
+# Handles delete request
+def delete(request, id):
+  item = Groceryitems.objects.get(id=id)
+  item.delete()
+  return HttpResponseRedirect(reverse('index'))
+
+def update(request, id):
+  item = Groceryitems.objects.get(id=id)
+  template = loader.get_template('update.html')
+  context = {
+    'item': item,
+  }
+  return HttpResponse(template.render(context, request))
+
+def updaterecord(request, id):
+  company_name = request.POST['company_name']
+  price = request.POST['price']
+  condition = request.POST['condition']
+  brand_name = request.POST['brand_name']
+  item_name = request.POST['item_name']
+  item = Groceryitems.objects.get(id=id)
+
+  # Check whether some variable is empty
+
+  item.company_name = company_name
+  item.price = price
+  item.condition = condition
+  item.brand_name = brand_name
+  item.item_name = item_name
+  item.save()
+  return HttpResponseRedirect(reverse('index'))

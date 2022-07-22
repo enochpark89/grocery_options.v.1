@@ -3,32 +3,49 @@
 <head>
     <link rel="stylesheet" href="https://unpkg.com/mvp.css">
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <h1>Grocery Items</h1>
+    <h1>Grocery Option.v1</h1>
+    <h2>All grocery items in the database:</h2>
     <div>
-        <a href="add/"><button type="button">Add</button></a>
+        <ul class="navBtnList">
+            <li>
+                <a href="add/"><button type="button">Add</button></a>
+            </li>
+        </ul>
     </div>
     <table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Post Date</th>
-        <th>Company Name</th>
-        <th>Price</th>
-        <th>Description</th>
-        <th>Brand Name</th>
-        <th>Item Name</th>
-    </tr>
-    {% for item in items %}
-    <tr>
-    <td>{{ item.id }}</td>
-    <td>{{ item.post_date }}</td>
-    <td>{{ item.company_name }}</td>
-    <td>$ {{ item.price }}</td>
-    <td>{{ item.condition }}</td>
-    <td>{{ item.brand_name }}</td>
-    <td>{{ item.item_name }}</td>
+        <tr>
+            <th>ID</th>
+            <th>Post Date</th>
+            <th>Company Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Brand Name</th>
+            <th>Item Name</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+        {% for item in items %}
+        <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.post_date }}</td>
+        <td>{{ item.company_name }}</td>
+        <td>$ {{ item.price }}</td>
+        <td>{{ item.condition }}</td>
+        <td>{{ item.brand_name }}</td>
+        <td>{{ item.item_name }}</td>
+        <td>
+            <a href="delete/{{ item.id }}">
+                <button class="deleteButton">Delete</button>
+            </a>
+        </td>
+        <td>
+            <a href="update/{{ item.id }}">
+                <button class="updateButton">Update</button>
+            </a>
+        </td>
     </tr>
     {% endfor %}
     </table>
